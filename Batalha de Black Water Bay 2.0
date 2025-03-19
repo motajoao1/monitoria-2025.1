@@ -1,0 +1,22 @@
+def solve_battle():
+    n, m = map(int, input().split())
+    battlefield = list(map(int, input().split()))
+    attacks = list(map(int, input().split()))
+
+    ship_middles = set()
+    for i in range(n - 2):
+        if battlefield[i:i+3] == [1, 1, 1]:
+            ship_middles.add(i + 1)
+
+    sunk_ships_count = 0
+    sunk_ship_indices = set()
+
+    for attack in attacks:
+        if attack in ship_middles and attack not in sunk_ship_indices:
+            sunk_ships_count += 1
+            sunk_ship_indices.add(attack)
+
+    print(sunk_ships_count)
+
+if __name__ == "__main__":
+    solve_battle()
