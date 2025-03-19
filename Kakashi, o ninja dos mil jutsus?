@@ -1,0 +1,26 @@
+J = int(input())  
+C = int(input())  
+N = int(input())  
+M = int(input())  
+
+
+faltam = 1000 - J
+
+
+if faltam <= 0:
+    print("Merecido!!!")
+    print(0)
+else:
+    dias = 0
+    chakra_restante = C
+    while faltam > 0 and dias < 7:
+        max_jutsus_dia = min(M, chakra_restante // N, faltam)
+        chakra_restante -= max_jutsus_dia * N
+        faltam -= max_jutsus_dia
+        dias += 1
+
+    if faltam > 0:
+        print("SUMIDAO!!!")
+    else:
+        print("Merecido!!!")
+        print(dias)
